@@ -1,4 +1,5 @@
 import React from "react";
+import { ParallaxProvider } from "react-scroll-parallax";
 import Navbar from "./Components/NavBar";
 import Background from "./Components/bg";
 import Footer from "./Components/Footer";
@@ -50,53 +51,55 @@ const sectionHeading = (text: string, icon?: React.ReactNode) => (
 
 const Portfolio: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white overflow-x-hidden font-sans">
-      {/* Intro, particles, cursor, and navigation */}
-      <Intro />
-      <Background showParticles={true} particleCount={80} />
-      <Cursor />
-      <Navbar />
+    <ParallaxProvider>
+      <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white overflow-x-hidden font-sans">
+        {/* Intro, particles, cursor, and navigation */}
+        <Intro />
+        <Background showParticles={true} particleCount={80} />
+        <Cursor />
+        <Navbar />
 
-      <main className="relative z-10 w-full max-w-5xl mx-auto pt-24 pb-16 px-4 md:px-8 flex flex-col gap-14">
-        <Hero />
+        <main className="relative z-10 w-full max-w-5xl mx-auto pt-24 pb-16 px-4 md:px-8 flex flex-col gap-14">
+          <Hero />
 
-        {/* Now Playing */}
-        <div className="flex justify-center mb-12">
-          <NowPlaying />
-        </div>
+          {/* Now Playing */}
+          <div className="flex justify-center mb-12">
+            <NowPlaying />
+          </div>
 
-        {/* Skills */}
-        <section id="skills" className="mb-20">
-          {sectionHeading("Skills")}
-          <SkillChip />
-        </section>
+          {/* Skills */}
+          <section id="skills" className="mb-20">
+            {sectionHeading("Skills")}
+            <SkillChip />
+          </section>
 
-        {/* Experience */}
-        <section id="experience" className="mb-20">
-          {sectionHeading("Experience")}
-          <Experience />
-        </section>
+          {/* Experience */}
+          <section id="experience" className="mb-20">
+            {sectionHeading("Experience")}
+            <Experience />
+          </section>
 
-        {/* Education */}
-        <section id="education" className="mb-20">
-          {sectionHeading("Education")}
-          <Education />
-        </section>
+          {/* Education */}
+          <section id="education" className="mb-20">
+            {sectionHeading("Education")}
+            <Education />
+          </section>
 
-        {/* Certificates */}
-        <section id="certificates" className="mb-20">
-          {sectionHeading("Certificates")}
-          <Certificates />
-        </section>
+          {/* Certificates */}
+          <section id="certificates" className="mb-20">
+            {sectionHeading("Certificates")}
+            <Certificates />
+          </section>
 
-        {/* Projects */}
-        <section id="projects" className="mb-20">
-          {sectionHeading("Projects")}
-          <Projects />
-        </section>
-      </main>
-      <Footer />
-    </div>
+          {/* Projects */}
+          <section id="projects" className="mb-20">
+            {sectionHeading("Projects")}
+            <Projects />
+          </section>
+        </main>
+        <Footer />
+      </div>
+    </ParallaxProvider>
   );
 };
 
