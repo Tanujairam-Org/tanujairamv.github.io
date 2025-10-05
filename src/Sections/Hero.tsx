@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="w-full flex flex-col md:flex-row items-center md:items-center justify-start gap-8 md:gap-16 py-8 md:py-14">
+      className="w-full flex flex-col md:flex-row items-center md:items-center justify-center gap-8 md:gap-16 px-4 py-8 md:py-14">
       {/* Image left */}
       <Parallax speed={-10} className="w-full md:w-auto">
         <FadeContent duration={800} delay={100} slide={true} blur={true}>
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
         {/* Main Heading */}
         <FadeContent duration={800} delay={200} slide={true} blur={true}>
           <h1
-            className="text-3xl md:text-5xl font-montserrat font-medium mb-2 flex flex-wrap items-center"
+            className="text-5xl md:text-7xl font-manrope font-medium mb-2 flex flex-wrap items-center"
             style={{
               fontWeight: 500,
               lineHeight: 1.14,
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
         {/* Subheading/About */}
         <FadeContent duration={800} delay={300} slide={true} blur={true}>
           <p
-            className="mt-2 mb-5 text-base md:text-lg font-montserrat font-normal text-center md:text-left"
+            className="mt-2 mb-5 text-lg md:text-xl font-manrope font-normal text-center md:text-left"
             style={{
               fontWeight: 400,
               lineHeight: 1.5,

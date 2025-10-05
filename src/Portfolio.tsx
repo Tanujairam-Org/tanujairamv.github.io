@@ -13,6 +13,8 @@ import Education from "./Sections/Education";
 import Experience from "./Sections/Experience";
 import Certificates from "./Sections/Certificates";
 import ShinyText from "./Components/gradient";
+import Contact from "./Sections/Contact";
+import Noise from "./Components/Noise";
 import "./Styles.css";
 
 // Error Boundary for production safety
@@ -43,7 +45,7 @@ function withErrorBoundary(Component: React.ComponentType) {
 const sectionHeading = (text: string, icon?: React.ReactNode) => (
   <div className="flex items-center gap-2 mb-6">
     {icon}
-    <ShinyText speed={5} className="text-2xl font-bold font-hatton">
+    <ShinyText speed={5} className="text-4xl font-bold font-manrope">
       {text}
     </ShinyText>
   </div>
@@ -52,14 +54,15 @@ const sectionHeading = (text: string, icon?: React.ReactNode) => (
 const Portfolio: React.FC = () => {
   return (
     <ParallaxProvider>
-      <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-950 text-white overflow-x-hidden font-sans">
+      <div className="relative min-h-screen bg-black text-white overflow-x-hidden font-manrope">
         {/* Intro, particles, cursor, and navigation */}
         <Intro />
-        <Background showParticles={true} particleCount={80} />
+        <Background showParticles={true} particleCount={30} />
         <Cursor />
         <Navbar />
+        <Noise patternAlpha={8} />
 
-        <main className="relative z-10 w-full max-w-5xl mx-auto pt-24 pb-16 px-4 md:px-8 flex flex-col gap-14">
+        <main className="relative z-10 w-full max-w-7xl mx-auto pt-24 pb-16 px-4 md:px-8 flex flex-col gap-14">
           <Hero />
 
           {/* Now Playing */}
@@ -95,6 +98,11 @@ const Portfolio: React.FC = () => {
           <section id="projects" className="mb-20">
             {sectionHeading("Projects")}
             <Projects />
+          </section>
+
+          {/* Contact */}
+          <section id="contact" className="mb-10">
+            <Contact />
           </section>
         </main>
         <Footer />

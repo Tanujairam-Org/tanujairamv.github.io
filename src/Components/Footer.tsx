@@ -15,7 +15,7 @@ const gradientStyle = {
 };
 
 const Footer: React.FC = () => (
-  <footer className="py-5 px-4 flex flex-col items-center gap-2 border-t border-white/10 bg-[#181824]">
+  <footer className="py-5 px-4 flex flex-col items-center gap-2 border-t border-white/10 bg-black">
     <nav aria-label="Social media links">
       <ul className="flex flex-row gap-5 mb-1">
         {socialLinks.map(({ href, icon: Icon, label }, index) => (
