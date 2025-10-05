@@ -1,11 +1,8 @@
-import React from "react";
+import React from 'react';
 import { FiBookOpen } from "react-icons/fi";
 import ShinyText from "../Components/gradient";
-import AnimatedList from "../Components/AnimatedList";
+import ScrollStack, { ScrollStackItem } from '../Components/ScrollStack';
 
-/**
- * Type definition for a single education entry.
- */
 interface EducationEntry {
   school: string;
   location: string;
@@ -46,12 +43,12 @@ const educationData: EducationEntry[] = [
 ];
 
 // A render function for a single education item card
-const renderEducationItem = (item: typeof educationData[0], isSelected: boolean) => (
+const renderEducationItem = (item: typeof educationData[0]) => (
   <div
     className={`
       relative rounded-2xl bg-white/40 dark:bg-neutral-900/40 shadow-xl shadow-gray-700/10
       px-6 py-5 md:py-7 transition-all duration-300 backdrop-blur-xl text-left cursor-pointer border-2
-      ${isSelected ? 'border-blue-300/70 bg-white/70 dark:bg-neutral-900/60 scale-[1.02]' : 'border-white/10'}
+      border-white/10
     `}
     style={{
       backdropFilter: "blur(18px) saturate(1.2)",
@@ -61,7 +58,7 @@ const renderEducationItem = (item: typeof educationData[0], isSelected: boolean)
     <div className="flex items-center gap-4 mb-2">
       {/* Icon container without the background circles */}
       <div className="flex h-8 w-8 items-center justify-center flex-shrink-0">{item.icon}</div>
-      <ShinyText className="text-lg font-semibold" speed={6} disabled={!isSelected}>
+      <ShinyText className="text-lg font-semibold" speed={6}>
         {item.school}
       </ShinyText>
     </div>
@@ -82,14 +79,21 @@ const renderEducationItem = (item: typeof educationData[0], isSelected: boolean)
 
 const Education: React.FC = () => {
   return (
-    <div className="relative flex flex-col items-center w-full">
-      <div className="relative w-full max-w-2xl mx-auto">
-        <AnimatedList
-          items={educationData}
-          renderItem={renderEducationItem}
-          getKey={(item) => item.school}
-        />
-      </div>
+    <div className="relative w-full max-w-3xl mx-auto">
+      <ScrollStack 
+        useWindowScroll={true} 
+        itemDistance={-80} 
+        itemScale={0.05} 
+        baseScale={0.8} 
+        blurAmount={1.5}
+        rotationAmount={1.5}
+      >
+        {educationData.map((item) => (
+          <ScrollStackItem key={item.school}>
+            {renderEducationItem(item)}
+          </ScrollStackItem>
+        ))}
+      </ScrollStack>
     </div>
   );
 };
