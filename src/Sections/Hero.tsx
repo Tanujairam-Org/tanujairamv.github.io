@@ -1,6 +1,7 @@
 import React from "react";
 import { Parallax } from "react-scroll-parallax";
-import { FiMail, FiGithub, FiInstagram, FiSend } from "react-icons/fi";
+import { FiMail, FiGithub, FiInstagram, FiSend, FiLinkedin } from "react-icons/fi";
+import { RiDiscordLine } from "react-icons/ri";
 import ShinyText from "../Components/gradient";
 import FadeContent from "../Components/FadeContent";
 
@@ -9,6 +10,8 @@ const aboutText = `As a developer, I’m dedicated to crafting beautiful, high-p
 const socialLinks = [
   { href: "mailto:tanujairam.v@gmail.com", icon: FiMail, label: "Email" },
   { href: "https://github.com/TanujairamV", icon: FiGithub, label: "GitHub" },
+  { href: "https://www.linkedin.com/in/tanujairam-v-a43478291/", icon: FiLinkedin, label: "LinkedIn" },
+  { href: "https://discordapp.com/users/tanujairam", icon: RiDiscordLine, label: "Discord" },
   { href: "https://instagram.com/tanujairam.v", icon: FiInstagram, label: "Instagram" },
   { href: "https://t.me/Tanujairam", icon: FiSend, label: "Telegram" }
 ];
